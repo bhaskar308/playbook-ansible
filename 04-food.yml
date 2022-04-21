@@ -1,0 +1,19 @@
+# installing git in nodes
+
+---
+- name: update n2
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: ensure git installed
+    yum:
+     name: git
+     state: present
+
+  - name: ensure site update
+    git:
+     repo: https://github.com/ravi2krishna/food.git
+     dest: /var/www/html  
+...
+

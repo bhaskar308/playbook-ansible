@@ -1,0 +1,32 @@
+# multi play multi task
+
+---
+- name: update n1
+  hosts: n1
+
+  tasks:
+  - name: creating directory
+    file:
+     path: /home/centos/node1
+     state: directory
+
+  - name: creating content
+    copy:
+     dest: /home/centos/n2.txt
+     content: hello
+
+- name: update n2
+  hosts: n2
+
+  tasks:
+  - name: creating directory
+    file:
+     path: /home/centos/node2
+     state: directory
+
+  - name: creating content
+    copy:
+     dest: /home/centos/n2.txt
+     content: hi  
+...
+

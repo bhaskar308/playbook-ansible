@@ -1,0 +1,12 @@
+#one play one task
+
+---
+- name: update webserver
+  hosts: n1
+
+  tasks:
+  - name: ensure directory
+    file:
+     path: /home/centos/vijay
+     state: directory
+...

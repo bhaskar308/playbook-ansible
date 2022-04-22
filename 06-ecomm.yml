@@ -1,0 +1,19 @@
+# installing site in nodes
+
+---
+- name: update n2
+  hosts: ub
+  become: yes
+
+  tasks:
+  - name: ensure defult page removed
+    file:
+     path: /var/www/html/index.html
+     state: absent
+
+  - name: ensure site update
+    git:
+     repo: https://github.com/ravi2krishna/ecomm.git
+     dest: /var/www/html  
+...
+

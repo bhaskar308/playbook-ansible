@@ -1,0 +1,27 @@
+# installing apache2 in nodes
+
+---
+- name: update ub
+  hosts: ub
+  become: yes
+
+  tasks:
+  - name: ensure apache2 installed
+    apt:
+     update_cache: yes
+
+  - name: ensure apache2 installed
+    apt:
+     name: apache2
+     state: present 
+
+  - name: ensure apache2 started
+    service:
+     name: apache2
+     state: started
+  - name: ensure apache2 enabled
+    service:
+      name: apache2
+      enabled: yes
+...
+
